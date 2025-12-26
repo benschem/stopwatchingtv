@@ -56,6 +56,9 @@ group :development, :test do
 
   # Factory Bot replaces fixtures with Ruby objects [https://github.com/thoughtbot/factory_bot_rails]
   gem "factory_bot_rails"
+
+  # Generate realistic fake data [https://github.com/faker-ruby/faker]
+  gem "faker", "~> 3.5"
 end
 
 group :development do
