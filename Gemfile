@@ -39,14 +39,32 @@ gem "thruster", require: false
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
+  # A Ruby static code analyzer and formatter, based on the community Ruby style guide [https://github.com/rubocop/rubocop]
+  gem "rubocop", "~> 1.78"
+
+  # rubocop-capybara [https://rubygems.org/gems/rubocop-capybara]
+  gem "rubocop-capybara", "~> 2.22"
+
+  # rubocop-factory_bot [https://rubygems.org/gems/rubocop-factory_bot]
+  gem "rubocop-factory_bot", "~> 2.27"
+
+  # rubocop-rails [https://rubygems.org/gems/rubocop-rails]
+  gem "rubocop-rails", "~> 2.32"
+
+  # rubocop-rspec [https://rubygems.org/gems/rubocop-rspec]
+  gem "rubocop-rspec", "~> 3.6"
+
+  # rubocop-rspec_rails [https://rubygems.org/gems/rubocop-rspec_rails]
+  gem "rubocop-rspec_rails", "~> 2.31"
+
+  # rubocop-performance [https://github.com/rubocop/rubocop-performance]
+  gem "rubocop-performance", "~> 1.25"
+
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
-
-  # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
-  gem "rubocop-rails-omakase", require: false
 
   # Use RSpec for testing [https://github.com/rspec/rspec-rails]
   gem "rspec-rails", "~> 8.0"
