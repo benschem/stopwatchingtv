@@ -78,7 +78,7 @@ group :development, :test do
   gem 'factory_bot_rails'
 
   # Simple one-liner tests for common Rails functionality [https://github.com/thoughtbot/shoulda-matchers]
-  gem 'shoulda-matchers', '~> 6.0'
+  gem 'shoulda-matchers', '~> 7.0'
 
   # Generate realistic fake data [https://github.com/faker-ruby/faker]
   gem 'faker', '~> 3.5'
