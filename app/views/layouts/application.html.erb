@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Stopwatchingtv" %></title>
+    <title><%= content_for(:title) || "Stop Scrolling" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -24,8 +24,22 @@
   </head>
 
   <body>
-    <main class="container";>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><strong>Stop Scrolling</strong></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
       <%= yield %>
     </main>
+
+    <footer class="container">
+      <small>
+        A tiny reminder that boredom is an opportunity.
+      </small>
+    </footer>
   </body>
 </html>
