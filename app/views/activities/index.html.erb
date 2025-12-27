@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Activities" %>
+
+<h1>Stop Scrolling</h1>
+<p>You spend too much time on your phone. Remember all the other things you like doing? What about all those things you want to start doing? Write them all down here and next time you're bored, come here to pick an activity at random.</p>
+
+<%= render "form", activity: @activity %>
+
+<ul id="activities" style="padding-inline-start: 0;">
+  <% if @activities.present? %>
+    <% @activities.each do |activity| %>
+      <%= render activity %>
+    <% end %>
+  <% else %>
+    <li style="list-style: none;">
+      No activities to display!
+    </li>
+  <% end %>
+</ul>
