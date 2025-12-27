@@ -1,6 +1,15 @@
-<li id="<%= dom_id activity %>" style="list-style: none; ">
-  <article style="display: flex; align-items: center; justify-content: space-between;">
-    <%= activity.name %>
-    <%= button_to "Delete", activity, method: :delete, aria_label: "Delete #{activity.name}" %>
+<li id="<%= dom_id activity %>">
+  <article class="activity">
+    <span class="activity-name">
+      <%= activity.name %>
+    </span>
+
+    <span class="activity-actions">
+      <%= button_to "Delete",
+        activity,
+        method: :delete,
+        class: "secondary outline",
+        form: { data: { turbo_confirm: "Remove this activity?" } } %>
+    </span>
   </article>
 </li>

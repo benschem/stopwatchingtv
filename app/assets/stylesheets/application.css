@@ -14,3 +14,73 @@
   --pico-primary: #0d6efd;
   --pico-font-family: system-ui, sans-serif;
 } */
+
+/* Layout rhythm */
+main {
+  margin-block: 3rem;
+}
+
+section + section {
+  margin-top: 3rem;
+}
+
+/* Intro tone */
+.intro h1 {
+  font-size: 2.5rem;
+}
+
+.intro p {
+  max-width: 60ch;
+}
+
+/* Activity list */
+.activity-list {
+  padding-left: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.activity-list li {
+  list-style: none !important;
+}
+
+.activity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Make the text feel intentional */
+.activity-name {
+  font-weight: 500;
+}
+
+/* Empty state */
+.empty-state {
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.flash {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Soft green for success */
+.flash-success {
+  background-color: #e6fffa; /* very light teal/green */
+  color: #065f46; /* darker green */
+  border-left: 4px solid #10b981; /* subtle accent */
+}
+
+/* Soft red for errors */
+.flash-error {
+  background-color: #fff5f5; /* very light pink */
+  color: #991b1b; /* dark red */
+  border-left: 4px solid #ef4444; /* subtle accent */
+}
