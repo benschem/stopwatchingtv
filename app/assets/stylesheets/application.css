@@ -84,3 +84,7 @@ section + section {
   color: #991b1b; /* dark red */
   border-left: 4px solid #ef4444; /* subtle accent */
 }
+
+.random > p {
+  margin-block-start: 1rem;
+}

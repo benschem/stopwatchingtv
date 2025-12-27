@@ -15,5 +15,9 @@ RSpec.describe ActivitiesController, type: :routing do
     it 'routes to #destroy' do
       expect(delete: '/activities/1').to route_to('activities#destroy', id: '1')
     end
+
+    it 'routes to #random' do
+      expect(get: '/activities/random').to route_to('activities#random')
+    end
   end
 end

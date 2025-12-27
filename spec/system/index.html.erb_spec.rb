@@ -48,4 +48,14 @@ RSpec.describe 'Activities index', type: :system do
       expect(page).to have_text('book', count: 1)
     end
   end
+
+  context "when user clicks the 'I'm bored' button" do
+    before do
+      click_link "I'm bored"
+    end
+
+    it 'displays a random activity' do
+      expect(page).to have_text('You should')
+    end
+  end
 end

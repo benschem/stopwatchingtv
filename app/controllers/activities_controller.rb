@@ -27,6 +27,14 @@ class ActivitiesController < ApplicationController
     redirect_to activities_path, notice: 'Activity deleted!', status: :see_other # rubocop:disable Rails/I18nLocaleTexts
   end
 
+  # GET /activities/random
+  def random
+    @activity = Activity.new
+    @activities = Activity.all
+    @random_activity = @activities.sample
+    render :index
+  end
+
   private
 
   def set_activity
