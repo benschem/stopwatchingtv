@@ -26,9 +26,9 @@ RSpec.describe '/activities', type: :request do
         expect { request }.to change(Activity, :count).by(1)
       end
 
-      it 'redirects to the created activity' do
+      it 'redirects to the activities list' do
         request
-        expect(response).to redirect_to(activity_url(Activity.last))
+        expect(response).to redirect_to(activities_url)
       end
     end
 

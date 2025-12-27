@@ -15,7 +15,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new(activity_params)
 
     if @activity.save
-      redirect_to activities_path notice: 'Activity created!' # rubocop:disable Rails/I18nLocaleTexts
+      redirect_to activities_path, notice: 'Activity created!' # rubocop:disable Rails/I18nLocaleTexts
     else
       render :index, status: :unprocessable_content
     end
