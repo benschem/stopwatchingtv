@@ -12,19 +12,27 @@
   </aside>
 <% end %>
 
-
 <section class="intro">
   <h1>Stop scrolling.</h1>
-
   <p>
     When you’re bored, your phone offers the easiest possible option.
     This is a place to keep better ones.
   </p>
+</section>
 
-  <p>
-    Add activities you enjoy or want to try. When you’re stuck,
-    come back and let randomness decide.
-  </p>
+<section class="random">
+  <%= link_to "I'm bored",
+              random_activities_path,
+              role: "button",
+              data: { turbo: false },
+              aria: { label: "I'm bored" } %>
+  <% if @random_activity %>
+    <p>You should <strong><%= @random_activity.name.downcase %></strong>.</p>
+  <% elsif @activities.blank? %>
+    <p>Add some activities to get inspired.</p>
+  <% else %>
+    <p>Need some inspiration?</p>
+  <% end %>
 </section>
 
 <section class="add-activity">
@@ -35,7 +43,7 @@
 <section class="activities">
   <h2>Your activities</h2>
 
-  <% if @activities %>
+  <% if @activities.present? %>
     <ul class="activity-list">
       <%= render @activities %>
     </ul>

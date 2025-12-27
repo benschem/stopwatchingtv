@@ -60,4 +60,17 @@ RSpec.describe '/activities', type: :request do
       expect(response).to redirect_to(activities_url)
     end
   end
+
+  describe 'GET /activities/random' do
+    subject(:request) { get random_activities_url }
+
+    before do
+      create(:activity)
+      request
+    end
+
+    it 'renders a successful response' do
+      expect(response).to be_successful
+    end
+  end
 end

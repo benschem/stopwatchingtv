@@ -14,5 +14,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'activities#index'
 
-  resources :activities, only: %i[index create destroy]
+  resources :activities, only: %i[index create destroy] do
+    collection do
+      get 'random'
+    end
+  end
 end
