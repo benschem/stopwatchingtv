@@ -1,0 +1,6 @@
+<li id="<%= dom_id activity %>" style="list-style: none; ">
+  <article style="display: flex; align-items: center; justify-content: space-between;">
+    <%= activity.name %>
+    <%= button_to "Delete", activity, method: :delete, aria_label: "Delete #{activity.name}" %>
+  </article>
+</li>
