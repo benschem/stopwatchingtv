@@ -88,3 +88,9 @@ section + section {
 .random > p {
   margin-block-start: 1rem;
 }
+
+nav > ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

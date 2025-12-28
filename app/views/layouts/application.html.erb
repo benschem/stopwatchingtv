@@ -27,7 +27,19 @@
     <header class="container">
       <nav>
         <ul>
-          <li><strong>Stop Scrolling</strong></li>
+          <li>
+            <strong>
+              <%= link_to 'StopScroll.ing', root_path %>
+            </strong>
+          </li>
+          <% if Current.session %>
+            <li><%= button_to 'Sign out', session_path, method: :delete, class: "secondary outline" %></li>
+          <% else %>
+            <div>
+              <li><%= link_to 'Sign up', new_user_path  %></li>
+              <li><%= link_to 'Sign in', new_session_path, role: "button"  %></li>
+            </div>
+          <% end %>
         </ul>
       </nav>
     </header>
