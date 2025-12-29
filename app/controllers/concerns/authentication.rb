@@ -3,10 +3,12 @@
 # User authentication
 module Authentication
   extend ActiveSupport::Concern
+  include ActionView::Helpers::DateHelper
 
   included do
     before_action :require_authentication
     before_action :update_session_last_seen_at_and_expires_at, if: :user_signed_in?
+    before_action :warn_of_impeding_account_deletion, if: :user_email_address_unverified?
 
     helper_method :authenticated?
   end
@@ -94,5 +96,20 @@ module Authentication
       last_seen_at: Time.current,
       expires_at: 2.weeks.from_now
     )
+  end
+
+  def warn_of_impeding_account_deletion
+    if Current.user.verification_expired?
+      active_for = Time.current - Current.user.created_at
+      grace_remaining = [EmailAddressVerification::UNVERIFIED_GRACE_PERIOD - active_for, 0].max
+      timeframe = distance_of_time_in_words(grace_remaining)
+      flash[:warn] = "This account will be deleted unless you verify your email address within #{timeframe}"
+    else
+      flash[:warn] = 'Please verify your email address' # rubocop:disable Rails/I18nLocaleTexts
+    end
+  end
+
+  def user_email_address_unverified?
+    Current.user&.unverified?
   end
 end

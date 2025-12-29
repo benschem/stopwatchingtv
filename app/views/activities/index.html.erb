@@ -4,7 +4,7 @@
   <% alert_class = case type.to_sym
      when :notice then "flash flash-success"
      when :alert  then "flash flash-error"
-     else "alert"
+     else "flash flash-error"
      end %>
 
   <aside role="status" class="<%= alert_class %>">

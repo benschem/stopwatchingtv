@@ -5,15 +5,18 @@ module EmailAddressVerification
   extend ActiveSupport::Concern
 
   TOKEN_EXPIRES_IN = 24.hours
+  UNVERIFIED_GRACE_PERIOD = 7.days
 
   included do
     generates_token_for :email_address_verification, expires_in: TOKEN_EXPIRES_IN
 
     after_commit :require_email_address_verification, if: :requires_email_verification?, on: %i[create update]
 
-    scope :too_long_without_verifying, -> { where(verified_at: nil).where(verification_sent_at: ...7.days.ago) }
-    # TODO: implement periodic clean up job -> User.too_long_without_verifying.destroy_all!
-    # Not urgent because users can reclaim unverified email addresses -> see controller
+    scope :still_unverified_after_grace_period, lambda {
+      where(verified_at: nil)
+        .where(created_at: ...UNVERIFIED_GRACE_PERIOD.ago)
+        .includes(:activities)
+    }
   end
 
   def email_address_verification_token
