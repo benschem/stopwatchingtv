@@ -13,35 +13,50 @@
 <% end %>
 
 <section class="intro">
-  <h1>Stop scrolling.</h1>
+  <h1>Stop scrolling!</h1>
   <p>
-    When you’re bored, your phone offers the easiest possible option.
-    This is a place to keep better ones.
+    Ever catch yourself endlessly scrolling, wishing you were doing something more meaningful, but can’t decide what?
   </p>
 </section>
 
 <section class="random">
-  <%= link_to "I'm bored",
-              random_activities_path,
-              role: "button",
-              data: { turbo: false },
-              aria: { label: "I'm bored" } %>
-  <% if @random_activity %>
-    <p>You should <strong><%= @random_activity.name.downcase %></strong>.</p>
-  <% elsif @activities.blank? %>
-    <p>Add some activities to get inspired.</p>
-  <% else %>
-    <p>Need some inspiration?</p>
-  <% end %>
+  <article>
+    <h2>Get off your phone and do something else.</h2>
+    <% if @random_activity %>
+      <p>
+        <%= random_cta %> <strong><%= @random_activity.name.downcase %></strong>.
+      </p>
+    <% elsif @activities.blank? %>
+      <p>Add some activities to get inspired.</p>
+    <% else %>
+      <p>Need some inspiration?</p>
+    <% end %>
+
+    <%= link_to "From your list",
+                random_activities_path,
+                role: "button",
+                data: { turbo: false },
+                aria: { label: "From your list" } %>
+
+    <%= link_to "Random suggestion",
+                suggestion_activities_path,
+                role: "button",
+                class: 'secondary',
+                data: { turbo: false },
+                aria: { label: "Random suggestion" } %>
+  </article>
 </section>
 
 <section class="add-activity">
-  <h2>Add an activity</h2>
-  <%= render "form", activity: @activity %>
+  <article>
+    <h2>What do you like doing?</h2>
+    <p>What do you wish you were doing more of?</p>
+    <%= render "form", activity: @activity %>
+  </article>
 </section>
 
 <section class="activities">
-  <h2>Your activities</h2>
+  <h2>Things you like doing.</h2>
 
   <% if @activities.present? %>
     <ul class="activity-list">

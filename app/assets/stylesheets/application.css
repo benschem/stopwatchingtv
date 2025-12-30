@@ -111,3 +111,9 @@ section + section {
 .random > p {
   margin-block-start: 1rem;
 }
+
+h1,
+h2,
+h3 {
+  margin-block-end: 0.8em !important;
+}

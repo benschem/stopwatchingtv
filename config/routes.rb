@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :activities, only: %i[index create destroy] do
     collection do
       get 'random'
+      get 'suggestion'
     end
   end
 end

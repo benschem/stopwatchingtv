@@ -12,15 +12,11 @@
     </article>
   <% end %>
 
-  <p>
-    Add activities you enjoy or want to try. When you’re stuck, come back and let randomness decide.
-  </p>
-
   <fieldset role="group">
     <%= form.text_field :name,
-          placeholder: "Go for a walk, read 10 pages…",
+          placeholder: "Going to the gym, reading a book…",
           aria: { label: "Activity name" } %>
 
-    <%= form.submit "Add activity" %>
+    <%= form.submit "Add to your list" %>
   </fieldset>
 <% end %>

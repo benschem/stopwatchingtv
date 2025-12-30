@@ -35,6 +35,13 @@ class ActivitiesController < ApplicationController
     render :index
   end
 
+  # GET /activities/suggestion
+  def suggestion
+    @activity = Activity.new
+    @random_activity = Activity.new(name: ACTIVITIES_LIST.sample)
+    render :index
+  end
+
   private
 
   def set_activity
